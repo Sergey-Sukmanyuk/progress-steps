@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap');
+:root {
+    --progress-active-color: #3498db;
+    --progress-default-color: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Mulish', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100vw;
+    width: 350px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.steps::before {
+    content: '';
+    background-color: var(--progress-default-color);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 350px;
+    height: 4px;
+    z-index: -1;
+}
+
+.steps_progress {
+    background-color: var(--progress-active-color);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 0%;
+    height: 4px;
+    z-index: -1;
+    transition: 0.4s ease;
+}
+
+.step {
+    background-color: #fff;
+    height: 40px;
+    width: 40px;
+    border: 4px solid var(--progress-default-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: gray;
+}
+
+.step.active {
+    border-color: var(--progress-active-color);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    background-color: var(--progress-active-color);
+    border: none;
+    font-size: 14px;
+    outline: none;
+    padding: 8px 30px;
+    font-family: inherit;
+    margin: 0 10px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    background-color: var(--progress-default-color);
+}
